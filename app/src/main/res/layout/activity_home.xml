@@ -68,7 +68,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/email" />
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -85,6 +86,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="@string/phone_number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -100,6 +102,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="@string/pincode" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -109,20 +112,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
-            app:errorEnabled="true"
-            app:startIconDrawable="@drawable/ic_baseline_add_business_24">
-
+            android:hint="@string/address"
+            app:startIconDrawable="@drawable/ic_baseline_add_business_24"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/address" />
+                android:lines="2" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
             android:id="@+id/validate_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="1dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/validate"
