@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">UserInfo</string>
+    <string name="enter_user_details">Enter Your Details</string>
+    <string name="save_button">save</string>
+    <string name="validate">Validate</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="pincode">Pincode</string>
+    <string name="address">Address</string>
+    <string name="field_is_required">Required Field</string>
 </resources>
