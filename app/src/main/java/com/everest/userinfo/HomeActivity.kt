@@ -103,7 +103,12 @@ class HomeActivity : AppCompatActivity() {
 
     private fun conformButton() {
         binding.confirmButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, ContactActivity::class.java)
+            intent.putExtra(userNameCd, binding.nameId.text.toString())
+            intent.putExtra(emailCd, binding.emailId.text.toString())
+            intent.putExtra(phone_number_Cd, binding.phoneNumberId.text.toString())
+            intent.putExtra(pin_codeCd,binding.pinCodeId.text.toString())
+            intent.putExtra(addressCd, binding.addressId.text.toString())
             startActivity(intent)
         }
     }
