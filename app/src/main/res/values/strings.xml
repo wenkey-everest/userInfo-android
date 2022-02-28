@@ -8,4 +8,11 @@
     <string name="pincode">Pincode</string>
     <string name="address">Address</string>
     <string name="field_is_required">Required Field</string>
+    <string name="name">Name:</string>
+    <string name="app_logo_desc">app_logo_desc</string>
+    <string name="user_name">User Name</string>
+    <string name="colon">:</string>
+    <string name="Summery">User details</string>
+    <string name="conform_button">conform</string>
+    <string name="cancel_button">cnacel</string>
 </resources>
