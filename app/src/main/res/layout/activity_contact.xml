@@ -22,7 +22,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="365dp"
-        android:layout_height="317dp"
+        android:layout_height="wrap_content"
         android:elevation="20dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
