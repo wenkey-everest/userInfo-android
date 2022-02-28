@@ -80,11 +80,12 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun isValidate(): Boolean {
-        return TextFieldValidation().validateUserName(binding, this) &&
-                TextFieldValidation().validateEmail(binding, this)
-                && TextFieldValidation().validatePhoneNumber(binding, this)
-                && TextFieldValidation().validatePinCode(binding, this)
-                && TextFieldValidation().validateAddress(binding, this)
+        val textFieldValidation = TextFieldValidation(binding, this)
+        return textFieldValidation.validateUserName() &&
+                textFieldValidation.validateEmail()
+                && textFieldValidation.validatePhoneNumber()
+                && textFieldValidation.validatePinCode()
+                && textFieldValidation.validateAddress()
     }
     private fun showSummeryCardView() {
         binding.editForm.visibility = View.GONE

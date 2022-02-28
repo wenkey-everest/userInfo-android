@@ -5,9 +5,10 @@ import android.widget.Toast
 import com.everest.userinfo.HomeActivity
 import com.everest.userinfo.databinding.ActivityHomeBinding
 
-class TextFieldValidation {
+class TextFieldValidation constructor(private var binding: ActivityHomeBinding,
+                                      private var homeActivity: HomeActivity ) {
 
-    fun validateUserName(binding: ActivityHomeBinding, homeActivity: HomeActivity) : Boolean{
+    fun validateUserName() : Boolean{
         if(binding.userName.editText?.text.toString().trim().isEmpty()){
             binding.userName.error="user name is required"
             Toast.makeText(homeActivity,binding.userName.error, Toast.LENGTH_SHORT).show()
@@ -17,7 +18,7 @@ class TextFieldValidation {
         return true
     }
 
-    fun validateEmail(binding: ActivityHomeBinding, homeActivity: HomeActivity) : Boolean{
+    fun validateEmail() : Boolean{
 
         if(binding.email.editText?.text.toString().isEmpty()){
             binding.email.error="email is required"
@@ -33,7 +34,7 @@ class TextFieldValidation {
         return true
     }
 
-    fun validatePhoneNumber(binding: ActivityHomeBinding, homeActivity: HomeActivity) : Boolean{
+    fun validatePhoneNumber() : Boolean{
             if(binding.phoneNumber.editText?.text.toString().length!=10){
                 binding.phoneNumber.error= "Phone number should be length 10"
                 Toast.makeText(homeActivity,binding.phoneNumber.error, Toast.LENGTH_SHORT).show()
@@ -49,7 +50,7 @@ class TextFieldValidation {
         return true
     }
 
-    fun validatePinCode(binding: ActivityHomeBinding, homeActivity: HomeActivity) : Boolean{
+    fun validatePinCode() : Boolean{
         if(binding.pinCode.editText?.text.toString().length!=6){
             binding.pinCode.error="Pincode should be only length 6"
             Toast.makeText(homeActivity,binding.pinCode.error, Toast.LENGTH_SHORT).show()
@@ -64,7 +65,7 @@ class TextFieldValidation {
         return true
     }
 
-    fun validateAddress(binding: ActivityHomeBinding, homeActivity: HomeActivity) : Boolean{
+    fun validateAddress() : Boolean{
         if(binding.address.editText?.text.toString().isEmpty()){
             binding.address.error="Address should not be empty"
             Toast.makeText(homeActivity,binding.address.error, Toast.LENGTH_SHORT).show()
