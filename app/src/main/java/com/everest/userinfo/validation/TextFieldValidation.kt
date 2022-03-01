@@ -25,7 +25,7 @@ class TextFieldValidation constructor(private var binding: ActivityHomeBinding,
             Toast.makeText(homeActivity,binding.email.error, Toast.LENGTH_SHORT).show()
             return false
         }
-        if(!Patterns.EMAIL_ADDRESS.matcher(binding.email.editText?.text.toString()).matches()){
+        if(!binding.email.editText?.text.toString().trim().matches(Regex("^[A-za-z0-9_.-]+@[a-z]+\\.+(com|co.in)"))){
             binding.email.error="email should contains @ and .com or .co.in "
             Toast.makeText(homeActivity,binding.email.error, Toast.LENGTH_SHORT).show()
             return false
@@ -40,6 +40,7 @@ class TextFieldValidation constructor(private var binding: ActivityHomeBinding,
                 Toast.makeText(homeActivity,binding.phoneNumber.error, Toast.LENGTH_SHORT).show()
                 return false
             }
+
         if(binding.phoneNumber.editText?.text.toString().isEmpty()){
             binding.phoneNumber.error="Phone number should not be empty"
             Toast.makeText(homeActivity,binding.phoneNumber.error, Toast.LENGTH_SHORT).show()

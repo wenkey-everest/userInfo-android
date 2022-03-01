@@ -20,6 +20,7 @@ class ContactActivity : AppCompatActivity() {
         binding = ActivityContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         val userName = intent.getStringExtra(userNameCd)
         val email = intent.getStringExtra(emailCd)
         val phoneNumber = intent.getStringExtra(phone_number_Cd)

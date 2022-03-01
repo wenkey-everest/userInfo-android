@@ -67,6 +67,7 @@ class HomeActivity : AppCompatActivity() {
         binding.pinCode.editText?.setText(savedInstanceState.getCharSequence(pin_codeCd))
         binding.address.editText?.setText(savedInstanceState.getCharSequence(addressCd))
 
+
         binding.nameId.text = savedInstanceState.getString(userName)
         binding.emailId.text = savedInstanceState.getString(email)
         binding.phoneNumberId.text = savedInstanceState.getString(phone_number)
@@ -74,6 +75,7 @@ class HomeActivity : AppCompatActivity() {
         binding.addressId.text = savedInstanceState.getString(address)
 
         conformButton()
+
         cancelButton()
 
     }
@@ -87,6 +89,7 @@ class HomeActivity : AppCompatActivity() {
                 && textFieldValidation.validatePinCode()
                 && textFieldValidation.validateAddress()
     }
+
     private fun showSummeryCardView() {
         binding.editForm.visibility = View.GONE
         binding.summeryCard.visibility = View.VISIBLE
@@ -108,12 +111,11 @@ class HomeActivity : AppCompatActivity() {
             intent.putExtra(userNameCd, binding.nameId.text.toString())
             intent.putExtra(emailCd, binding.emailId.text.toString())
             intent.putExtra(phone_number_Cd, binding.phoneNumberId.text.toString())
-            intent.putExtra(pin_codeCd,binding.pinCodeId.text.toString())
+            intent.putExtra(pin_codeCd, binding.pinCodeId.text.toString())
             intent.putExtra(addressCd, binding.addressId.text.toString())
             startActivity(intent)
         }
     }
-
 
     private fun cancelButton() {
         binding.cancelButton.setOnClickListener {
@@ -121,7 +123,5 @@ class HomeActivity : AppCompatActivity() {
             binding.editForm.visibility = View.VISIBLE
         }
     }
-
-
 
 }
