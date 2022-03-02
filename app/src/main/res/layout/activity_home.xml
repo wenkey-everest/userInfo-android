@@ -257,6 +257,7 @@
                 app:startIconDrawable="@drawable/ic_baseline_person_24">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_name_id_test"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:hint="@string/user_name" />
@@ -274,6 +275,7 @@
                 app:startIconDrawable="@drawable/ic_baseline_email_24">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_id_test"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
@@ -293,6 +295,7 @@
 
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number_id_test"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/phone_number"
@@ -310,6 +313,7 @@
                 app:startIconDrawable="@drawable/ic_baseline_pin_drop_24">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pin_code_id_test"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/pincode"
@@ -328,6 +332,7 @@
                 app:startIconDrawable="@drawable/ic_baseline_add_business_24">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address_id_test"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:lines="2" />

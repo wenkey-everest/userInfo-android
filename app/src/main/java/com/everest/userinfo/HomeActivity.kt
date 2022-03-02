@@ -82,12 +82,12 @@ class HomeActivity : AppCompatActivity() {
 
 
     private fun isValidate(): Boolean {
-        val textFieldValidation = TextFieldValidation(binding, this)
-        return textFieldValidation.validateUserName() &&
-                textFieldValidation.validateEmail()
-                && textFieldValidation.validatePhoneNumber()
-                && textFieldValidation.validatePinCode()
-                && textFieldValidation.validateAddress()
+        val textFieldValidation = TextFieldValidation(this)
+        return textFieldValidation.validateUserName(binding.userName) &&
+                textFieldValidation.validateEmail(binding.email)
+                && textFieldValidation.validatePhoneNumber(binding.phoneNumber)
+                && textFieldValidation.validatePinCode(binding.pinCode)
+                && textFieldValidation.validateAddress(binding.address)
     }
 
     private fun showSummeryCardView() {
