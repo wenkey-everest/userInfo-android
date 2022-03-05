@@ -114,6 +114,5 @@ class ExampleInstrumentedTest {
         Instrumentation.ActivityResult(Activity.RESULT_OK, resultData)
 
 
-
     }
 }
