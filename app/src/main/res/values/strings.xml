@@ -13,7 +13,11 @@
     <string name="user_name">User Name</string>
     <string name="colon">:</string>
     <string name="Summery">User details</string>
-    <string name="conform_button">conform</string>
-    <string name="cancel_button">cancel</string>
-    <string name="hi">HI</string>
+    <string name="conform_button">Confirm</string>
+    <string name="cancel_button">Cancel</string>
+
+
+
+    <string name="user_paragraph">Hi %1$s, How are you? Are you staying at %2$s - %3$s \n code.
+        I am not able to contact you on %4$s Can I email you the details at %5$s</string>
 </resources>

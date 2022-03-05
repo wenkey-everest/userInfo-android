@@ -2,6 +2,7 @@ package com.everest.userinfo
 
 import addressCd
 import android.annotation.SuppressLint
+import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.everest.userinfo.databinding.ActivityContactBinding
@@ -27,9 +28,9 @@ class ContactActivity : AppCompatActivity() {
         val pinCode = intent.getStringExtra(pin_codeCd)
         val address = intent.getStringExtra(addressCd)
 
-        binding.paragraph.text= "Hi "+userName+", How are you? Are you staying at "+address+"-"+pinCode+" \n" +
-                "code. I am not able to contact you on "+phoneNumber+". Can I \n" +
-                "email you the details at "+email+""
+       val userParagraph = String.format(resources.getString(R.string.user_paragraph), userName, address, pinCode, phoneNumber, email)
+
+        binding.paragraph.text= userParagraph
 
 
     }
