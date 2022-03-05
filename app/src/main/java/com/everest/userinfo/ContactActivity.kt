@@ -30,8 +30,7 @@ class ContactActivity : AppCompatActivity() {
 
        val userParagraph = String.format(resources.getString(R.string.user_paragraph), userName, address, pinCode, phoneNumber, email)
 
-        binding.paragraph.text= userParagraph
-
+        binding.paragraph.text = userParagraph
 
     }
 }

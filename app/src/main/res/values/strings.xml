@@ -3,9 +3,9 @@
     <string name="enter_user_details">Enter Your Details</string>
     <string name="save_button">save</string>
     <string name="validate">Validate</string>
-    <string name="email">Email</string>
-    <string name="phone_number">Phone Number</string>
-    <string name="pincode">Pincode</string>
+    <string name="email">Email ID</string>
+    <string name="phone_number">PhoneNo</string>
+    <string name="pincode">Pin Code</string>
     <string name="address">Address</string>
     <string name="field_is_required">Required Field</string>
     <string name="name">Name:</string>
@@ -20,4 +20,5 @@
 
     <string name="user_paragraph">Hi %1$s, How are you? Are you staying at %2$s - %3$s \n code.
         I am not able to contact you on %4$s Can I email you the details at %5$s</string>
+    <string name="user_name_validation_tesst">user name is required</string>
 </resources>

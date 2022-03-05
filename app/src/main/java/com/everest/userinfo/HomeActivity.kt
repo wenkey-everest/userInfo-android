@@ -40,7 +40,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt(user_form, binding.editForm.visibility)
         outState.putInt(summery_card, binding.summeryCard.visibility)
-        super.onSaveInstanceState(outState)
 
         outState.putString(userName, binding.nameId.text.toString())
         outState.putString(email, binding.emailId.text.toString())
@@ -53,20 +52,18 @@ class HomeActivity : AppCompatActivity() {
         outState.putCharSequence(phone_number_Cd, binding.phoneNumber.editText?.text.toString())
         outState.putCharSequence(pin_codeCd, binding.pinCode.editText?.text.toString())
         outState.putCharSequence(addressCd, binding.address.editText?.text.toString())
+        super.onSaveInstanceState(outState)
+
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         binding.editForm.visibility = savedInstanceState.getInt(user_form, View.GONE)
         binding.summeryCard.visibility = savedInstanceState.getInt(summery_card, View.VISIBLE)
-
-        super.onRestoreInstanceState(savedInstanceState)
-
         binding.userName.editText?.setText(savedInstanceState.getCharSequence(userNameCd))
         binding.email.editText?.setText(savedInstanceState.getCharSequence(emailCd))
         binding.phoneNumber.editText?.setText(savedInstanceState.getCharSequence(phone_number_Cd))
         binding.pinCode.editText?.setText(savedInstanceState.getCharSequence(pin_codeCd))
         binding.address.editText?.setText(savedInstanceState.getCharSequence(addressCd))
-
 
         binding.nameId.text = savedInstanceState.getString(userName)
         binding.emailId.text = savedInstanceState.getString(email)
@@ -74,9 +71,12 @@ class HomeActivity : AppCompatActivity() {
         binding.pinCodeId.text = savedInstanceState.getString(pin_code)
         binding.addressId.text = savedInstanceState.getString(address)
 
-        conformButton()
+        onClickConformButton()
 
-        cancelButton()
+        onClickCancelButton()
+
+        super.onRestoreInstanceState(savedInstanceState)
+
 
     }
 
@@ -99,13 +99,13 @@ class HomeActivity : AppCompatActivity() {
         binding.pinCodeId.text = binding.pinCode.editText?.text.toString()
         binding.addressId.text = binding.address.editText?.text.toString()
 
-        conformButton()
+        onClickConformButton()
 
-        cancelButton()
+        onClickCancelButton()
 
     }
 
-    private fun conformButton() {
+    private fun onClickConformButton() {
         binding.confirmButton.setOnClickListener {
             val intent = Intent(this, ContactActivity::class.java)
             intent.putExtra(userNameCd, binding.nameId.text.toString())
@@ -117,7 +117,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
-    private fun cancelButton() {
+    private fun onClickCancelButton() {
         binding.cancelButton.setOnClickListener {
             binding.summeryCard.visibility = View.GONE
             binding.editForm.visibility = View.VISIBLE

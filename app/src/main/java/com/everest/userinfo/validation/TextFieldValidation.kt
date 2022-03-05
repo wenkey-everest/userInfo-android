@@ -3,6 +3,7 @@ package com.everest.userinfo.validation
 import android.util.Patterns
 import android.widget.Toast
 import com.everest.userinfo.HomeActivity
+import com.everest.userinfo.R
 import com.everest.userinfo.databinding.ActivityHomeBinding
 import com.google.android.material.textfield.TextInputLayout
 
@@ -10,7 +11,7 @@ class TextFieldValidation constructor(private var homeActivity: HomeActivity ) {
 
     fun validateUserName(userName: TextInputLayout): Boolean{
         if(userName.editText?.text.toString().trim().isEmpty()){
-            userName.error="user name is required"
+            userName.error=homeActivity.getString(R.string.user_name_validation_tesst)
             Toast.makeText(homeActivity,userName.error, Toast.LENGTH_SHORT).show()
             return false
         }

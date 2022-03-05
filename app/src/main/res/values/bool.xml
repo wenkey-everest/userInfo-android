@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="is_error_enabled">true</bool>
+    <bool name="is_error_disabled">false</bool>
     <bool name="is_saved_enabled">true</bool>
 
 </resources>
