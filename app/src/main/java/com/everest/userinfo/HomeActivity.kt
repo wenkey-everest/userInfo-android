@@ -12,6 +12,7 @@ import SUMMERY_CARD_VISIBILITY
 import USER
 import USER_FORM
 import USER_FORM_VISIBILITY
+import android.widget.EditText
 
 class HomeActivity : AppCompatActivity() {
 
@@ -25,7 +26,7 @@ class HomeActivity : AppCompatActivity() {
 
         binding.validateButton.setOnClickListener {
             if (isValidate()) {
-                showSummeryCardView()
+                summeryCard()
             }
         }
 
@@ -44,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
         val textViewParcelable = User(
             binding.userName.editText?.text.toString(),
             binding.email.editText?.text.toString(), binding.phoneNumber.editText?.text.toString(),
-            binding.pinCode.editText?.text.toString(),binding.address.editText?.text.toString()
+            binding.pinCode.editText?.text.toString(), binding.address.editText?.text.toString()
         )
 
         outState.putParcelable(USER_FORM, editTextParcelable)
@@ -56,10 +57,11 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         binding.editForm.visibility = savedInstanceState.getInt(USER_FORM_VISIBILITY, View.GONE)
-        binding.summeryCard.visibility = savedInstanceState.getInt(SUMMERY_CARD_VISIBILITY, View.VISIBLE)
+        binding.summeryCard.visibility =
+            savedInstanceState.getInt(SUMMERY_CARD_VISIBILITY, View.VISIBLE)
 
         val summeryCardDetails = savedInstanceState.getParcelable<User>(SUMMERY_CARD)
-        val formInputs= savedInstanceState.getParcelable<User>(USER_FORM)
+        val formInputs = savedInstanceState.getParcelable<User>(USER_FORM)
 
         binding.userName.editText?.setText(summeryCardDetails?.userName)
         binding.email.editText?.setText(summeryCardDetails?.email)
@@ -84,14 +86,16 @@ class HomeActivity : AppCompatActivity() {
 
     private fun isValidate(): Boolean {
         val textFieldValidation = TextFieldValidation(this)
-        return textFieldValidation.validateUserName(binding.userName) &&
-                textFieldValidation.validateEmail(binding.email)
-                && textFieldValidation.validatePhoneNumber(binding.phoneNumber)
-                && textFieldValidation.validatePinCode(binding.pinCode)
-                && textFieldValidation.validateAddress(binding.address)
+
+        return textFieldValidation.validateUserName(binding.userName.editText?.text.toString()) &&
+                textFieldValidation.validateEmail(binding.email.editText?.text.toString())
+                && textFieldValidation.validatePhoneNumber(binding.phoneNumber.editText?.text.toString())
+                && textFieldValidation.validatePinCode(binding.pinCode.editText?.text.toString())
+                && textFieldValidation.validateAddress(binding.address.editText?.text.toString())
     }
 
-    private fun showSummeryCardView() {
+
+    private fun summeryCard() {
         binding.editForm.visibility = View.GONE
         binding.summeryCard.visibility = View.VISIBLE
         binding.nameId.text = binding.userName.editText?.text.toString()

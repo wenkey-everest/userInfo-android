@@ -31,7 +31,6 @@ class ExampleInstrumentedTest {
     var rule = ActivityScenarioRule(HomeActivity::class.java)
 
 
-
     @Test
     fun inputFieldTest() {
         //get all views
@@ -69,6 +68,7 @@ class ExampleInstrumentedTest {
         onView(withId(R.id.summery_card)).check(matches(isDisplayed()))
 
     }
+
     @Test
     fun onClickCancelButtonFormIsVisible() {
 

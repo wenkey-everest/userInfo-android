@@ -4,77 +4,71 @@ import android.content.Context
 import android.content.ContextWrapper
 import android.widget.Toast
 import com.everest.userinfo.R
-import com.google.android.material.textfield.TextInputLayout
 
-class TextFieldValidation(private var homeActivity: Context?) : ContextWrapper(homeActivity) {
+class TextFieldValidation(homeActivity: Context?) : ContextWrapper(homeActivity) {
 
-    fun validateUserName(userName: TextInputLayout): Boolean{
-        if(userName.editText?.text.toString().trim().isEmpty()){
-            userName.error= homeActivity?.getString(R.string.user_name_validation_tesst)
-            Toast.makeText(homeActivity,userName.error, Toast.LENGTH_SHORT).show()
+    fun validateUserName(userName: String): Boolean {
+        if (userName.trim().isEmpty()) {
+            toastMessage(getString(R.string.user_name_validation_test))
             return false
         }
-        userName.isErrorEnabled = false
         return true
     }
 
-    fun validateEmail(email: TextInputLayout) : Boolean{
+    fun validateEmail(email: String): Boolean {
 
-        if(email.editText?.text.toString().isEmpty()){
-            email.error="email is required"
-            Toast.makeText(homeActivity,email.error, Toast.LENGTH_SHORT).show()
+        if (email.trim().isEmpty()) {
+            toastMessage(getString(R.string.email_field_validate))
             return false
         }
-        if(!email.editText?.text.toString().trim().matches(Regex("^[A-za-z0-9_.-]+@[a-z]+\\.+(com|co.in)"))){
-            email.error="email should contains @ and .com or .co.in "
-            Toast.makeText(homeActivity,email.error, Toast.LENGTH_SHORT).show()
+        if (!email.trim()
+                .matches(Regex("^[A-za-z0-9_.-]+@[a-z]+\\.+(com|co.in)"))
+        ) {
+            toastMessage(getString(R.string.email_should_be_end_with))
             return false
         }
-        email.isErrorEnabled = false
         return true
     }
 
-    fun validatePhoneNumber(phoneNumber : TextInputLayout) : Boolean{
-            if(phoneNumber.editText?.text.toString().length!=10){
-                phoneNumber.error= "Phone number should be length 10"
-                Toast.makeText(homeActivity,phoneNumber.error, Toast.LENGTH_SHORT).show()
-                return false
-            }
-
-        if(phoneNumber.editText?.text.toString().isEmpty()){
-            phoneNumber.error="Phone number should not be empty"
-            Toast.makeText(homeActivity,phoneNumber.error, Toast.LENGTH_SHORT).show()
+    fun validatePhoneNumber(phoneNumber: String): Boolean {
+        if (phoneNumber.trim().length != 10) {
+            toastMessage(getString(R.string.password_contains_10_digits))
             return false
         }
 
-        phoneNumber.isErrorEnabled=false
+        if (phoneNumber.trim().isEmpty()) {
+            toastMessage(getString(R.string.password_should_not_empty))
+            return false
+        }
+
         return true
     }
 
-    fun validatePinCode(pinCode: TextInputLayout) : Boolean{
-        if(pinCode.editText?.text.toString().length!=6){
-            pinCode.error="Pincode should be only length 6"
-            Toast.makeText(homeActivity,pinCode.error, Toast.LENGTH_SHORT).show()
+    fun validatePinCode(pinCode: String): Boolean {
+        if (pinCode.trim().length != 6) {
+            toastMessage(getString(R.string.pincode_should_be_6))
             return false
         }
-        if(pinCode.editText?.text.toString().isEmpty()){
-            pinCode.error="Phone number should not be empty"
-            Toast.makeText(homeActivity,pinCode.error, Toast.LENGTH_SHORT).show()
+        if (pinCode.trim().isEmpty()) {
+            toastMessage(getString(R.string.pin_code_should_not_be_empty))
             return false
         }
-        pinCode.isErrorEnabled=false
         return true
     }
 
-    fun validateAddress(address : TextInputLayout) : Boolean{
-        if(address.editText?.text.toString().isEmpty()){
-            address.error="Address should not be empty"
-            Toast.makeText(homeActivity,address.error, Toast.LENGTH_SHORT).show()
+    fun validateAddress(address: String): Boolean {
+        if (address.isEmpty()) {
+            toastMessage(getString(R.string.address_should_not_be_empty))
             return false
         }
-        address.isErrorEnabled=false
         return true
     }
 
-
+    private fun toastMessage(string: String) {
+        Toast.makeText(
+            this,
+            string,
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 }

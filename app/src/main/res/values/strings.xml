@@ -20,5 +20,12 @@
 
     <string name="user_paragraph">Hi %1$s, How are you? Are you staying at %2$s - %3$s \n code.
         I am not able to contact you on %4$s Can I email you the details at %5$s</string>
-    <string name="user_name_validation_tesst">user name is required</string>
+    <string name="user_name_validation_test">user name is required</string>
+    <string name="email_field_validate">email is required</string>
+    <string name="email_should_be_end_with">\"email should contains @ and .com or .co.in \"</string>
+    <string name="password_contains_10_digits">Phone number should be length 10</string>
+    <string name="password_should_not_empty">Phone number should not be empty</string>
+    <string name="pincode_should_be_6">Pincode should be only length 6</string>
+    <string name="pin_code_should_not_be_empty">Phone number should not be empty</string>
+    <string name="address_should_not_be_empty">Address should not be empty</string>
 </resources>
