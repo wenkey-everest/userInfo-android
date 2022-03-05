@@ -1,24 +1,22 @@
 package com.everest.userinfo
 
-import address
+import ADDRESS
 import android.app.Activity
 import android.app.Instrumentation
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.intent.Intents.intended
-import androidx.test.espresso.intent.matcher.IntentMatchers.*
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import email
+import EMAIL
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
-import phone_number
-import pin_code
-import userName
+import PHONE_NUMBER
+import PIN_CODE
+import USER_NAME
 
 
 /**
@@ -106,11 +104,11 @@ class ExampleInstrumentedTest {
 
 
         val resultData = Intent()
-        resultData.putExtra(userName,"wenkey" )
-        resultData.putExtra(email,"wenkey@gmail.com" )
-        resultData.putExtra(phone_number, "9198762111")
-        resultData.putExtra(pin_code, "524132")
-        resultData.putExtra(address,"18-462, mahesh colony, subbayagari petta, amalapuram, 564526 " )
+        resultData.putExtra(USER_NAME,"wenkey" )
+        resultData.putExtra(EMAIL,"wenkey@gmail.com" )
+        resultData.putExtra(PHONE_NUMBER, "9198762111")
+        resultData.putExtra(PIN_CODE, "524132")
+        resultData.putExtra(ADDRESS,"18-462, mahesh colony, subbayagari petta, amalapuram, 564526 " )
         Instrumentation.ActivityResult(Activity.RESULT_OK, resultData)
 
 

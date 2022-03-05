@@ -1,15 +1,11 @@
 package com.everest.userinfo
 
-import addressCd
+import USER
 import android.annotation.SuppressLint
-import android.content.res.Resources
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.everest.userinfo.databinding.ActivityContactBinding
-import emailCd
-import phone_number_Cd
-import pin_codeCd
-import userNameCd
+import com.everest.userinfo.models.User
 
 class ContactActivity : AppCompatActivity() {
 
@@ -21,14 +17,12 @@ class ContactActivity : AppCompatActivity() {
         binding = ActivityContactBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val user = intent.getParcelableExtra<User>(USER)
 
-        val userName = intent.getStringExtra(userNameCd)
-        val email = intent.getStringExtra(emailCd)
-        val phoneNumber = intent.getStringExtra(phone_number_Cd)
-        val pinCode = intent.getStringExtra(pin_codeCd)
-        val address = intent.getStringExtra(addressCd)
-
-       val userParagraph = String.format(resources.getString(R.string.user_paragraph), userName, address, pinCode, phoneNumber, email)
+        val userParagraph = String.format(
+            resources.getString(R.string.user_paragraph),
+            user?.userName, user?.address, user?.pinCode, user?.phoneNumber, user?.email
+        )
 
         binding.paragraph.text = userParagraph
 

@@ -1,23 +1,17 @@
 package com.everest.userinfo
 
-import address
-import addressCd
+import SUMMERY_CARD
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.everest.userinfo.databinding.ActivityHomeBinding
+import com.everest.userinfo.models.User
 import com.everest.userinfo.validation.TextFieldValidation
-import email
-import emailCd
-import phone_number
-import phone_number_Cd
-import pin_code
-import pin_codeCd
-import summery_card
-import userName
-import userNameCd
-import user_form
+import SUMMERY_CARD_VISIBILITY
+import USER
+import USER_FORM
+import USER_FORM_VISIBILITY
 
 class HomeActivity : AppCompatActivity() {
 
@@ -37,39 +31,47 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
+
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(user_form, binding.editForm.visibility)
-        outState.putInt(summery_card, binding.summeryCard.visibility)
+        outState.putInt(USER_FORM_VISIBILITY, binding.editForm.visibility)
+        outState.putInt(SUMMERY_CARD_VISIBILITY, binding.summeryCard.visibility)
 
-        outState.putString(userName, binding.nameId.text.toString())
-        outState.putString(email, binding.emailId.text.toString())
-        outState.putString(phone_number, binding.phoneNumberId.text.toString())
-        outState.putString(pin_code, binding.pinCodeId.text.toString())
-        outState.putString(address, binding.addressId.text.toString())
+        val editTextParcelable = User(
+            binding.nameId.text.toString(),
+            binding.emailId.text.toString(), binding.phoneNumberId.text.toString(),
+            binding.pinCodeId.text.toString(), binding.addressId.text.toString()
+        )
+        val textViewParcelable = User(
+            binding.userName.editText?.text.toString(),
+            binding.email.editText?.text.toString(), binding.phoneNumber.editText?.text.toString(),
+            binding.pinCode.editText?.text.toString(),binding.address.editText?.text.toString()
+        )
 
-        outState.putCharSequence(userNameCd, binding.userName.editText?.text.toString())
-        outState.putCharSequence(emailCd, binding.email.editText?.text.toString())
-        outState.putCharSequence(phone_number_Cd, binding.phoneNumber.editText?.text.toString())
-        outState.putCharSequence(pin_codeCd, binding.pinCode.editText?.text.toString())
-        outState.putCharSequence(addressCd, binding.address.editText?.text.toString())
+        outState.putParcelable(USER_FORM, editTextParcelable)
+        outState.putParcelable(SUMMERY_CARD, textViewParcelable)
+
         super.onSaveInstanceState(outState)
 
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        binding.editForm.visibility = savedInstanceState.getInt(user_form, View.GONE)
-        binding.summeryCard.visibility = savedInstanceState.getInt(summery_card, View.VISIBLE)
-        binding.userName.editText?.setText(savedInstanceState.getCharSequence(userNameCd))
-        binding.email.editText?.setText(savedInstanceState.getCharSequence(emailCd))
-        binding.phoneNumber.editText?.setText(savedInstanceState.getCharSequence(phone_number_Cd))
-        binding.pinCode.editText?.setText(savedInstanceState.getCharSequence(pin_codeCd))
-        binding.address.editText?.setText(savedInstanceState.getCharSequence(addressCd))
+        binding.editForm.visibility = savedInstanceState.getInt(USER_FORM_VISIBILITY, View.GONE)
+        binding.summeryCard.visibility = savedInstanceState.getInt(SUMMERY_CARD_VISIBILITY, View.VISIBLE)
 
-        binding.nameId.text = savedInstanceState.getString(userName)
-        binding.emailId.text = savedInstanceState.getString(email)
-        binding.phoneNumberId.text = savedInstanceState.getString(phone_number)
-        binding.pinCodeId.text = savedInstanceState.getString(pin_code)
-        binding.addressId.text = savedInstanceState.getString(address)
+        val summeryCardDetails = savedInstanceState.getParcelable<User>(SUMMERY_CARD)
+        val formInputs= savedInstanceState.getParcelable<User>(USER_FORM)
+
+        binding.userName.editText?.setText(summeryCardDetails?.userName)
+        binding.email.editText?.setText(summeryCardDetails?.email)
+        binding.phoneNumber.editText?.setText(summeryCardDetails?.phoneNumber)
+        binding.pinCode.editText?.setText(summeryCardDetails?.pinCode)
+        binding.address.editText?.setText(summeryCardDetails?.address)
+
+        binding.nameId.text = formInputs?.userName
+        binding.emailId.text = formInputs?.email
+        binding.phoneNumberId.text = formInputs?.phoneNumber
+        binding.pinCodeId.text = formInputs?.pinCode
+        binding.addressId.text = formInputs?.address
 
         onClickConformButton()
 
@@ -79,7 +81,6 @@ class HomeActivity : AppCompatActivity() {
 
 
     }
-
 
     private fun isValidate(): Boolean {
         val textFieldValidation = TextFieldValidation(this)
@@ -108,11 +109,13 @@ class HomeActivity : AppCompatActivity() {
     private fun onClickConformButton() {
         binding.confirmButton.setOnClickListener {
             val intent = Intent(this, ContactActivity::class.java)
-            intent.putExtra(userNameCd, binding.nameId.text.toString())
-            intent.putExtra(emailCd, binding.emailId.text.toString())
-            intent.putExtra(phone_number_Cd, binding.phoneNumberId.text.toString())
-            intent.putExtra(pin_codeCd, binding.pinCodeId.text.toString())
-            intent.putExtra(addressCd, binding.addressId.text.toString())
+
+            val user = User(
+                binding.nameId.text.toString(),
+                binding.emailId.text.toString(), binding.phoneNumberId.text.toString(),
+                binding.pinCodeId.text.toString(), binding.addressId.text.toString()
+            )
+            intent.putExtra(USER, user)
             startActivity(intent)
         }
     }

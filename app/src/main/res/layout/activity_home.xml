@@ -36,7 +36,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/cardView_margin_top"
             android:elevation="@dimen/cardView_elevation"
-            android:visibility="visible"
+            android:visibility="gone"
             app:cardCornerRadius="@dimen/cardView_corner_radius">
 
             <LinearLayout
@@ -230,7 +230,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/enter_details_title"
