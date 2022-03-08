@@ -1,0 +1,16 @@
+
+const val USER_NAME= "USER_NAME"
+const val EMAIL = "EMAIl"
+const val PHONE_NUMBER = "PHONE_NUMBER"
+const val PIN_CODE = "PIN_CODE"
+const val ADDRESS = "ADDRESS"
+
+
+const val USER_FORM_VISIBILITY = "USER_FORM_VISIBILITY"
+const val SUMMERY_CARD_VISIBILITY = "SUMMERY_CARD_VISIBILITY"
+
+const val USER_FORM = "USER_FORM"
+const val SUMMERY_CARD = "SUMMERY_CARD"
+
+const val USER = "USER"
+
