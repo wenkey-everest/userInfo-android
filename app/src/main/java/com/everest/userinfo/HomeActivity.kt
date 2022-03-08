@@ -32,7 +32,6 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-
     override fun onSaveInstanceState(outState: Bundle) {
         outState.putInt(USER_FORM_VISIBILITY, binding.editForm.visibility)
         outState.putInt(SUMMERY_CARD_VISIBILITY, binding.summeryCard.visibility)
