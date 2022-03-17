@@ -10,6 +10,8 @@
         <entry key="app/src/main/res/layout/activity_contact.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.23080291748046877" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/editform_fragment.xml" value="0.30867892261650276" />
+        <entry key="app/src/main/res/layout/summery_card_fragment.xml" value="0.30867892261650276" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1035" />
       </map>
     </option>

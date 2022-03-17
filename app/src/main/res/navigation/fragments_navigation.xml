@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragments_navigation.xml"
+    app:startDestination="@id/editFormFragment">
+
+    <fragment
+        android:id="@+id/editFormFragment"
+        android:name="com.everest.userinfo.ui.EditFormFragment"
+        android:label="EditFormFragment" >
+        <action
+            android:id="@+id/action_editFormFragment_to_summeryCardFragment"
+            app:destination="@id/summeryCardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/summeryCardFragment"
+        android:name="com.everest.userinfo.ui.SummeryCardFragment"
+        android:label="SummeryCardFragment" >
+        <action
+            android:id="@+id/action_summeryCardFragment_to_editFormFragment"
+            app:destination="@id/editFormFragment" />
+    </fragment>
+</navigation>

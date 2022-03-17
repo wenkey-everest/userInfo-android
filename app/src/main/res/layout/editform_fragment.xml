@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/title_margin_start"
+            android:layout_marginTop="@dimen/title_margin_top"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/app_name"
+            android:textSize="@dimen/title_text_size" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/image_view_width"
+            android:layout_height="@dimen/image_view_height"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/image_view_margin_top"
+            android:contentDescription="@string/app_logo_desc"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <LinearLayout
+            android:id="@+id/edit_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/enter_details_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/form_title_margin_top"
+                android:fontFamily="sans-serif-black"
+                android:gravity="center"
+                android:text="@string/enter_user_details"
+                android:textSize="@dimen/form_title_TV_size"
+                android:visibility="visible" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ET_margin_start"
+                android:layout_marginTop="@dimen/user_name_ET_margin_top"
+                android:layout_marginEnd="@dimen/ET_margin_end"
+                android:saveEnabled="@bool/is_error_enabled"
+                android:visibility="visible"
+                app:errorEnabled="@bool/is_saved_enabled"
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/user_name_id_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/user_name" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ET_margin_start"
+                android:layout_marginEnd="@dimen/ET_margin_end"
+                android:visibility="visible"
+                app:errorEnabled="@bool/is_error_enabled"
+                app:startIconDrawable="@drawable/ic_baseline_email_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email_id_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ET_margin_start"
+                android:layout_marginEnd="@dimen/ET_margin_end"
+                android:visibility="visible"
+                app:errorEnabled="@bool/is_error_enabled"
+                app:startIconDrawable="@drawable/ic_baseline_local_phone_24">
+
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/phone_number_id_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/phone_number"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pin_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ET_margin_start"
+                android:layout_marginEnd="@dimen/ET_margin_end"
+                android:visibility="visible"
+                app:errorEnabled="@bool/is_saved_enabled"
+                app:startIconDrawable="@drawable/ic_baseline_pin_drop_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/pin_code_id_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/pincode"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ET_margin_start"
+                android:layout_marginEnd="@dimen/ET_margin_end"
+                android:hint="@string/address"
+                android:visibility="visible"
+                app:errorEnabled="@bool/is_saved_enabled"
+                app:startIconDrawable="@drawable/ic_baseline_add_business_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/address_id_test"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lines="@integer/address_of_lines" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/validate_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/visible_button_margin_start"
+                android:layout_marginTop="@dimen/visible_button_margin_top"
+                android:layout_marginEnd="@dimen/visible_button_margin_end"
+                android:text="@string/validate"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
